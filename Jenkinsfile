@@ -4,11 +4,13 @@ pipeline {
             label "mvn"
         }
     }
-
+    environment {
+        PATH = "/opt/apache-maven-3.9.3/bin:$PATH"
+    }
     stages {
-        stage('Clone code to Jenkins node') {
+        stage('Build using maven') {
             steps {
-                git branch: 'main', url: 'https://github.com/bohemian-coder/basic-java-app.git'
+                sh 'mvn clean deploy'
             }
         }
     }
