@@ -1,4 +1,7 @@
 def registry = 'https://tkcicd.jfrog.io/'
+def imageName = 'tkcicd.jfrog.io/maytkcicd-docker-local/bja'
+def version   = '2.1.2'
+
 pipeline {
     agent {
         node {
@@ -71,6 +74,28 @@ pipeline {
                         echo '...Jar publish ended...'  
                 }
             }   
+        }
+
+        stage(" Docker Build ") {
+            steps {
+                script {
+                    echo '...Docker build started...'
+                    app = docker.build(imageName+":"+version)
+                    echo '...Docker build completed...'
+                }
+            }
+        }
+
+        stage (" Docker Publish "){
+            steps {
+                script {
+                    echo '...Docker publish started...'
+                        docker.withRegistry(registry, 'jfrog'){
+                            app.push()
+                        }    
+                    echo '...Docker publish ended...'
+                }
+            }
         }   
     }
 }
