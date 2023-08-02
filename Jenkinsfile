@@ -8,9 +8,19 @@ pipeline {
         PATH = "/opt/apache-maven-3.9.3/bin:$PATH"
     }
     stages {
-        stage('Build using maven') {
+        stage('Build') {
             steps {
-                sh 'mvn clean deploy'
+                echo '...Maven build started...'
+                sh 'mvn clean deploy -Dmaven.test.skip=true'
+                echo '...maven build completed...'
+
+            }
+        }
+        stage('Test'){
+            steps{
+                echo '...Unit testing started...'
+                sh 'mvn surefire-report:report'
+                echo '...Unit testing completed...'
             }
         }
         stage('SonarQube analysis') {
