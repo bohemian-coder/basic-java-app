@@ -8,12 +8,12 @@
 		<version>2.2.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.valaxy</groupId>
-	<artifactId>demo-workshop</artifactId>
+	<groupId>com.may</groupId>
+	<artifactId>basic-java-app</artifactId>
 	<version>2.1.2</version>
-	<name>demo-workshop</name>
+	<name>basic-java-app</name>
 	<packaging>jar</packaging>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo Spring Boot App</description>
 
 	<properties>
 		<java.version>1.8</java.version>
