@@ -102,7 +102,7 @@ pipeline {
             steps{
                 script {
                     echo '...Docker publish started...'
-                        sh 'helm install tkcicd-0.1.0.tgz'  
+                        sh 'helm install tkcicd tkcicd-0.1.0.tgz'  
                     echo '...Docker publish ended...'
                 }
             }
