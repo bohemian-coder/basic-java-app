@@ -98,10 +98,12 @@ pipeline {
             }
         }
 
-        stage("Run kubernetes configuration files from deploy.sh"){
+        stage("Deploy to kubernetes using helm package"){
             steps{
                 script {
-                    sh './deploy.sh'
+                    echo '...Docker publish started...'
+                        sh 'helm install tkcicd-0.1.0.tgz'  
+                    echo '...Docker publish ended...'
                 }
             }
         }   
