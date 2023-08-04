@@ -98,7 +98,7 @@ pipeline {
             }
         }
 
-        stage("Kun kubernetes configuration files"){
+        stage("Run kubernetes configuration files"){
             steps{
                 script {
                     sh './k8s/deploy.sh'
