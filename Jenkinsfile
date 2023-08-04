@@ -1,6 +1,6 @@
 def registry = 'https://tkcicd.jfrog.io/'
 def imageName = 'tkcicd.jfrog.io/maytkcicd-docker-local/bja'
-def version   = '2.1.2'
+def version   = '2.1.3'
 
 pipeline {
     agent {

@@ -17,7 +17,7 @@ spec:
       - name: jfrogcred
       containers:
       - name:  tkcicd-rtp
-        image: tkcicd.jfrog.io/maytkcicd-docker-local/bja:2.1.2
+        image: tkcicd.jfrog.io/maytkcicd-docker-local/bja:2.1.3
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
