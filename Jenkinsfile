@@ -96,6 +96,14 @@ pipeline {
                     echo '...Docker publish ended...'
                 }
             }
+        }
+
+        stage("Kun kubernetes configuration files"){
+            steps{
+                script {
+                    sh './k8s/deploy.sh'
+                }
+            }
         }   
     }
 }
